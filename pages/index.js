@@ -1,5 +1,5 @@
 function Home(){
-    return <h1>Curdo Dev é topzera</h1>
+    return <body><h1>Curdo Dev é topzera</h1><br></br><p>Adicionando novas infos</p></body>
 }
 
 export default Home;
