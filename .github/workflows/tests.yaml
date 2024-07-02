@@ -1,0 +1,18 @@
+name: Automated Tests #Nome do meu actions
+ 
+on: pull_request #Evento que o meu actions está esperand
+
+jobs:
+  jest:
+    name: Jest Ubuntu #Nome do JOB
+    runs-on: ubuntu-latest #Onde o teste vai rodar
+    steps:
+      - uses: actions/checkout@v4 #Utilizado par apuxar o código para a maquina de teste
+
+      - uses: actions/setup-node@v4 
+        with:
+          node-version: "lts/hydrogen" 
+
+      - run: npm ci #Vamos utilizar o npm ci inves do install pois o install tras a versão atualizada o ci tras a versão exata que declaramos
+
+      - run: npm test #Vamos executar o teste
