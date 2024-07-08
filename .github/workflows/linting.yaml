@@ -1,0 +1,20 @@
+name: Liting #Nome do workflow
+
+on: pull_request #Evento que irá servir de trigger.
+
+jobs:
+  prettier: #Job em si 
+    name: Prettier #Nome do job
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/hydrogen
+    
+    - run: npm ci #utilizamos o CI pois o Install atualiza os dependencias e o CI instala exatamente o que está escrito
+    
+    #- run: npm run lint:prettier:check
+
+    - run: npm run lint:prettier:fix
